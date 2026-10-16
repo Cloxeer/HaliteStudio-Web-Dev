@@ -112,6 +112,7 @@ site:
   type: web-developer
   integrations:
     cmsEnabled: true
+    customDomain: halitestudio.com
   theme:
     fontDisplay: Outfit
     fontBody: Figtree

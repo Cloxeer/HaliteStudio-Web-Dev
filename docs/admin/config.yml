@@ -1,11 +1,11 @@
 backend:
   name: github
-  repo: Cloxeer/Halite-Web-Dev
+  repo: Cloxeer/HaliteStudio-Web-Dev
   branch: main
   base_url: https://sveltia-cms-auth.halitestudio.workers.dev
-site_url: https://cloxeer.github.io/Halite-Web-Dev
-display_url: https://cloxeer.github.io/Halite-Web-Dev
-site_id: cloxeer.github.io
+site_url: https://halitestudio.com
+display_url: https://halitestudio.com
+site_id: halitestudio.com
 media_folder: public/images
 public_folder: /images
 collections:
