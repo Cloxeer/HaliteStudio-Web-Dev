@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+
+      
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#2B1D3A"/>
+      <stop offset="70%" stop-color="#1F1530"/>
+      <stop offset="100%" stop-color="#150D22"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bgGrad)"/>
+  <rect x="10" y="10" width="1004" height="1004" rx="40" fill="none" stroke="#CC8A0F" stroke-opacity="0.55" stroke-width="12"/>
+  <rect x="26" y="26" width="972" height="972" rx="32" fill="none" stroke="#241511" stroke-opacity="0.9" stroke-width="8"/>
+
+      
+  <g transform="translate(200,380) rotate(-12 130 130)" opacity="1">
+    <defs>
+    <linearGradient id="grad11" x1="0%" y1="0%" x2="1%" y2="1%">
+      <stop offset="0%" stop-color="#FFFBEE"/>
+      <stop offset="100%" stop-color="#F2D9A8"/>
+    </linearGradient>
+    <linearGradient id="grad12" x1="0%" y1="0%" x2="1%" y2="1%">
+      <stop offset="0%" stop-color="#FFFDF6"/>
+      <stop offset="100%" stop-color="#F7E7C2"/>
+    </linearGradient></defs>
+    <g transform="scale(0.5078125)">
+      <path d="M74.5 36A38.5 38.5 0 0 0 36 74.5v363A38.5 38.5 0 0 0 74.5 476h363a38.5 38.5 0 0 0 38.5-38.5v-363A38.5 38.5 0 0 0 437.5 36h-363z" fill="url(#grad11)" stroke="#241511" stroke-width="26" stroke-linejoin="round"/>
+      <path d="M96 86h320a24 24 0 0 1 24 24v292a24 24 0 0 1-24 24H96a24 24 0 0 1-24-24V110a24 24 0 0 1 24-24z" fill="url(#grad12)"/>
+      <path d="M96 402h344" stroke="#F7C463" stroke-width="16" stroke-linecap="round" opacity="0.8"/>
+    </g>
+  </g>
+      <polygon points="560,360 640,320 620,420" fill="#FFFBEE" stroke="#241511" stroke-width="12" stroke-linejoin="round"/>
+      <polygon points="640,400 720,370 700,470" fill="#FFFBEE" stroke="#241511" stroke-width="12" stroke-linejoin="round"/>
+      <polygon points="600,460 680,480 620,560" fill="#FFFBEE" stroke="#241511" stroke-width="12" stroke-linejoin="round"/>
+      <polygon points="700,500 780,460 760,560" fill="#F5F5F4" stroke="#241511" stroke-width="12" stroke-linejoin="round"/>
+      <polygon points="650,540 730,580 660,640" fill="#E7E5E4" stroke="#241511" stroke-width="12" stroke-linejoin="round"/>
+      <circle cx="500" cy="480" r="18" fill="#FF6B1A" opacity="0.85"/>
+      <circle cx="540" cy="440" r="10" fill="#FF6B1A" opacity="0.6"/>
+    
+</svg>

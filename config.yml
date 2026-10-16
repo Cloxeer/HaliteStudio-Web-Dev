@@ -387,6 +387,8 @@ site:
         href: /work
       - label: Let's talk
         href: /apply
+      - label: Games
+        href: /games
     legal:
       - label: Privacy Policy
         href: /privacy

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--
+  ELI5: The "Games" page of the Halite Studio site: a short list of games, each one a big clickable card.
+  What: Static page copied into the published site as /games/. Matches the Halite pages (colors, fonts, header, footer).
+  Owns: The games list. To add a game, copy the Knuckles <li> and point it at the game's own folder.
+  Depends on: ../images/halite/logo.png, knuckles/images/icon-256.webp. Footer links mirror the site footer (config.yml footer).
+  Note: asset paths start with ./ or ../ on purpose, so the docs build leaves them page-relative.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Games | Halite Studio</title>
+<meta name="description" content="Games made by Halite Studio. Start with Knuckles, a free dice-stacking duel for iPhone, iPad and Android.">
+<link rel="canonical" href="https://halitestudio.com/games/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Games | Halite Studio">
+<meta property="og:description" content="Games made by Halite Studio. Start with Knuckles, a free dice-stacking duel for iPhone, iPad and Android.">
+<meta property="og:url" content="https://halitestudio.com/games/">
+<meta property="og:image" content="https://halitestudio.com/games/knuckles/images/og-knuckles.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf8f3;
+    --bg: oklch(0.985 0.008 70);
+    --band: #f6f1e7;
+    --band: oklch(0.97 0.012 85);
+    --text: #2e2823;
+    --text: oklch(0.24 0.02 40);
+    --heading: #25211e;
+    --heading: oklch(0.22 0.01 50);
+    --muted: #6f655d;
+    --muted: oklch(0.49 0.02 50);
+    --accent: #a4562a;
+    --accent: oklch(0.54 0.11 48);
+    --accent-text: #8a5230;
+    --accent-text: oklch(0.49 0.07 45);
+    --line: rgba(37, 33, 30, 0.12);
+    --card: #ffffff;
+    --radius: 14px;
+    --max: 1152px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 16px/1.6 Figtree, ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: Outfit, ui-sans-serif, system-ui, sans-serif; color: var(--heading); font-weight: 600; margin: 0; }
+  a { color: inherit; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--card); padding: 8px 14px; border-radius: 8px; z-index: 10; }
+  .skip:focus { left: 8px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  /* Header: same bar as the rest of the site */
+  .bar { background: #fff; border-bottom: 1px solid var(--line); }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 65px; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo img { width: 36px; height: 36px; display: block; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1.05; }
+  .logo-text b { font: 600 18px/1.05 Outfit, system-ui, sans-serif; color: var(--heading); }
+  .logo-text span { font: 500 12px/1.2 Figtree, system-ui, sans-serif; color: var(--accent-text); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav { display: flex; align-items: center; gap: 28px; }
+  .nav a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted); padding: 10px 2px; transition: color 0.2s ease; }
+  .nav a:hover { color: var(--heading); }
+  .nav .cta { background: var(--accent); color: #fff; padding: 10px 24px; border-radius: 8px; font-weight: 600; transition: filter 0.2s ease; }
+  .nav .cta:hover { color: #fff; filter: brightness(1.08); }
+
+  /* Page band + title */
+  .band { background: var(--band); padding: 56px 0 48px; }
+  .eyebrow { font: 600 14px/1 Figtree, system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 14px; }
+  h1 { font-size: clamp(34px, 5vw, 44px); line-height: 1.1; }
+  .lead { margin: 14px 0 0; max-width: 40rem; color: var(--muted); font-size: 18px; }
+
+  /* Game cards */
+  .list { list-style: none; margin: 0; padding: 48px 0 88px; display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+  [hidden] { display: none !important; }
+  .list li { display: flex; flex-direction: column; }
+  .stores { margin: 12px 4px 0; font-size: 14px; color: var(--muted); }
+  .stores a { display: inline-block; margin-left: 12px; padding: 8px 0; color: var(--accent-text); font-weight: 600; text-underline-offset: 3px; }
+  .game {
+    position: relative;
+    display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center;
+    padding: 24px; flex: 1;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(37, 33, 30, 0.04), 0 10px 24px -12px rgba(37, 33, 30, 0.14);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s ease;
+  }
+  .game img { width: 96px; height: 96px; border-radius: 22px; display: block; box-shadow: 0 6px 16px -6px rgba(31, 21, 48, 0.5); }
+  .game h2 { font-size: 24px; line-height: 1.15; }
+  .game p { margin: 6px 0 0; color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .tags li { font: 600 12px/1 Figtree, system-ui, sans-serif; padding: 6px 10px; border-radius: 999px; background: var(--band); color: var(--accent-text); }
+  .more { display: inline-block; margin-top: 14px; font-weight: 600; color: var(--accent-text); }
+  .more::after { content: "\2192"; display: inline-block; margin-left: 0.4em; transition: transform 0.3s var(--ease); }
+  @media (hover: hover) and (pointer: fine) {
+    .game:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 2px 4px rgba(37, 33, 30, 0.05), 0 18px 36px -14px rgba(37, 33, 30, 0.22); }
+    .game:hover .more::after { transform: translateX(4px); }
+  }
+  .game:active { transform: scale(0.99); }
+
+  /* Footer: same three columns as the rest of the site */
+  .foot { background: var(--band); border-top: 1px solid var(--line); padding: 56px 0 28px; }
+  .foot-grid { display: grid; gap: 40px; grid-template-columns: 1.4fr 2fr; }
+  .foot-brand p { margin: 12px 0 0; color: var(--muted); max-width: 26rem; font-size: 15px; }
+  .foot-cols { display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); }
+  .foot-cols h3 { font-size: 14px; margin-bottom: 4px; }
+  .foot-cols a { display: block; padding: 8px 0; font-size: 14px; color: var(--muted); text-decoration: none; }
+  .foot-cols a:hover { color: var(--heading); text-decoration: underline; text-underline-offset: 4px; }
+  .copy { margin: 40px 0 0; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .nav a:not(.cta) { display: none; }
+    .foot-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .foot-cols { grid-template-columns: 1fr 1fr; }
+    .game { grid-template-columns: 1fr; text-align: left; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .game, .more::after { transition: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="../index.html" aria-label="Halite Studio home">
+      <img src="../images/halite/logo.png" alt="" width="36" height="36">
+      <span class="logo-text"><b>Halite</b><span>Studio</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="../services/index.html">Services</a>
+      <a href="../work/index.html">Work</a>
+      <a href="../process/index.html">Process</a>
+      <a href="../pricing/index.html">Pricing</a>
+      <a href="../about/index.html">About</a>
+      <a class="cta" href="../apply/index.html">Let&rsquo;s talk</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Games</p>
+      <h1>Games from Halite Studio</h1>
+      <p class="lead">Small, polished games made in Las Cruces. Pick one to see how it plays.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <ul class="list">
+      <li>
+        <a class="game" href="knuckles/">
+          <img src="./knuckles/images/icon-256.webp" alt="" width="96" height="96">
+          <div>
+            <h2>Knuckles</h2>
+            <p>Stack dice. Break theirs. Outscore them.</p>
+            <ul class="tags" aria-label="Details">
+              <li>Dice duel</li>
+              <li>iPhone &amp; Android</li>
+              <li>vs AI or a friend</li>
+            </ul>
+            <span class="more">See the game</span>
+          </div>
+        </a>
+        <p class="stores">
+          <span>Get it on</span>
+          <a href="https://apps.apple.com/us/app/knuckles-game/id6744087482" target="_blank" rel="noopener">App Store</a>
+          <a data-play href="#" target="_blank" rel="noopener" hidden>Google Play</a>
+        </p>
+      </li>
+    </ul>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="../index.html" aria-label="Halite Studio home">
+          <img src="../images/halite/logo.png" alt="" width="36" height="36">
+          <span class="logo-text"><b>Halite</b><span>Studio</span></span>
+        </a>
+        <p>I&rsquo;m Sebastian, a CS student in Las Cruces. You work with me, not a call center.</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h3>Services</h3>
+          <a href="../services/index.html">Website Design</a>
+          <a href="../process/index.html">Our Process</a>
+          <a href="../pricing/index.html">Pricing</a>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <a href="../about/index.html">About</a>
+          <a href="../work/index.html">Work</a>
+          <a href="../apply/index.html">Let&rsquo;s talk</a>
+          <a href="index.html" aria-current="page">Games</a>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <a href="../privacy/index.html">Privacy Policy</a>
+          <a href="../terms/index.html">Terms of Service</a>
+          <a href="../service-agreement/index.html">Service Agreement</a>
+        </div>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 Halite Studio. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

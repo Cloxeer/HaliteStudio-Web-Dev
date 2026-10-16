@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+
+      
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#2B1D3A"/>
+      <stop offset="70%" stop-color="#1F1530"/>
+      <stop offset="100%" stop-color="#150D22"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bgGrad)"/>
+  <rect x="10" y="10" width="1004" height="1004" rx="40" fill="none" stroke="#CC8A0F" stroke-opacity="0.55" stroke-width="12"/>
+  <rect x="26" y="26" width="972" height="972" rx="32" fill="none" stroke="#241511" stroke-opacity="0.9" stroke-width="8"/>
+
+      
+  <defs>
+    <linearGradient id="cometGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B1A" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FF6B1A" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <path d="M120 620 Q320 540 520 400" fill="none" stroke="url(#cometGrad)" stroke-width="30" stroke-linecap="round"/>
+      
+  <g transform="translate(460,320) rotate(8 140 140)" opacity="1">
+    <defs>
+    <linearGradient id="grad33" x1="0%" y1="0%" x2="1%" y2="1%">
+      <stop offset="0%" stop-color="#FFFBEE"/>
+      <stop offset="100%" stop-color="#F2D9A8"/>
+    </linearGradient>
+    <linearGradient id="grad34" x1="0%" y1="0%" x2="1%" y2="1%">
+      <stop offset="0%" stop-color="#FFFDF6"/>
+      <stop offset="100%" stop-color="#F7E7C2"/>
+    </linearGradient></defs>
+    <g transform="scale(0.546875)">
+      <path d="M74.5 36A38.5 38.5 0 0 0 36 74.5v363A38.5 38.5 0 0 0 74.5 476h363a38.5 38.5 0 0 0 38.5-38.5v-363A38.5 38.5 0 0 0 437.5 36h-363z" fill="url(#grad33)" stroke="#241511" stroke-width="26" stroke-linejoin="round"/>
+      <path d="M96 86h320a24 24 0 0 1 24 24v292a24 24 0 0 1-24 24H96a24 24 0 0 1-24-24V110a24 24 0 0 1 24-24z" fill="url(#grad34)"/>
+      <path d="M96 402h344" stroke="#F7C463" stroke-width="16" stroke-linecap="round" opacity="0.8"/>
+    </g>
+  </g>
+      
+  <g transform="translate(200,720) scale(1.1) translate(-40,-60)">
+    <path d="M40 110 C18 90 12 60 28 36 C36 52 48 52 44 30 C70 48 78 78 62 104 C54 114 46 116 40 110Z" fill="#FF6B1A" stroke="#241511" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M40 100 C28 88 26 70 34 56 C38 66 46 66 44 52 C58 64 62 82 52 98 C48 104 44 104 40 100Z" fill="#FFB25E" opacity="0.95"/>
+    <circle cx="42" cy="88" r="7" fill="#FFF7E8" opacity="0.9"/>
+  </g>
+      
+  <g transform="translate(320,740) scale(1.1) translate(-40,-60)">
+    <path d="M40 110 C18 90 12 60 28 36 C36 52 48 52 44 30 C70 48 78 78 62 104 C54 114 46 116 40 110Z" fill="#FF6B1A" stroke="#241511" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M40 100 C28 88 26 70 34 56 C38 66 46 66 44 52 C58 64 62 82 52 98 C48 104 44 104 40 100Z" fill="#FFB25E" opacity="0.95"/>
+    <circle cx="42" cy="88" r="7" fill="#FFF7E8" opacity="0.9"/>
+  </g>
+      
+  <g transform="translate(440,750) scale(1.1) translate(-40,-60)">
+    <path d="M40 110 C18 90 12 60 28 36 C36 52 48 52 44 30 C70 48 78 78 62 104 C54 114 46 116 40 110Z" fill="#FF6B1A" stroke="#241511" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M40 100 C28 88 26 70 34 56 C38 66 46 66 44 52 C58 64 62 82 52 98 C48 104 44 104 40 100Z" fill="#FFB25E" opacity="0.95"/>
+    <circle cx="42" cy="88" r="7" fill="#FFF7E8" opacity="0.9"/>
+  </g>
+      
+  <g transform="translate(560,740) scale(1.1) translate(-40,-60)">
+    <path d="M40 110 C18 90 12 60 28 36 C36 52 48 52 44 30 C70 48 78 78 62 104 C54 114 46 116 40 110Z" fill="#FF6B1A" stroke="#241511" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M40 100 C28 88 26 70 34 56 C38 66 46 66 44 52 C58 64 62 82 52 98 C48 104 44 104 40 100Z" fill="#FFB25E" opacity="0.95"/>
+    <circle cx="42" cy="88" r="7" fill="#FFF7E8" opacity="0.9"/>
+  </g>
+      
+  <g transform="translate(680,720) scale(1.1) translate(-40,-60)">
+    <path d="M40 110 C18 90 12 60 28 36 C36 52 48 52 44 30 C70 48 78 78 62 104 C54 114 46 116 40 110Z" fill="#FF6B1A" stroke="#241511" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M40 100 C28 88 26 70 34 56 C38 66 46 66 44 52 C58 64 62 82 52 98 C48 104 44 104 40 100Z" fill="#FFB25E" opacity="0.95"/>
+    <circle cx="42" cy="88" r="7" fill="#FFF7E8" opacity="0.9"/>
+  </g>
+    
+</svg>
