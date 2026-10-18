@@ -5,7 +5,7 @@
         Terms and Privacy live beside it at ./terms/ and ./privacy/ (these are the URLs to give App Store Connect).
   Owns: The Knuckles landing copy and the store buttons (App Store is live; the Google Play buttons carry
         the `hidden` attribute until their link is known: set href + remove `hidden` on the two data-play anchors).
-  Depends on: knuckles.css, fonts/, images/, badges/ (all copied from the game's own files).
+  Depends on: knuckles.css, try.js (the playable demo), fonts/, images/, art/ (icons), badges/ (all copied from the game's own files).
 -->
 <html lang="en">
 <head>
@@ -55,9 +55,11 @@
       <span>Knuckles</span>
     </a>
     <nav aria-label="Page">
+      <a href="#try">Try a round</a>
       <a href="#how">How to play</a>
       <a href="#screens">Screens</a>
       <a href="#modes">Modes</a>
+      <a href="founders/">Founders</a>
       <a class="keep" href="#get">Get the game</a>
     </nav>
   </div>
@@ -66,6 +68,8 @@
 <main id="main">
 
   <section class="hero" aria-labelledby="hero-title">
+    <img class="fist fist-l" src="./art/fist-left.svg" alt="" width="150" height="150">
+    <img class="fist fist-r" src="./art/fist-right.svg" alt="" width="150" height="150">
     <div class="wrap hero-grid">
       <div>
         <span class="pill" data-pop>A free dice duel for iPhone, iPad &amp; Android</span>
@@ -92,46 +96,80 @@
     </div>
   </section>
 
+  <section class="section" id="try" aria-labelledby="try-title">
+    <div class="wrap try-grid">
+      <div>
+        <p class="eyebrow">Try a round</p>
+        <h2 class="h2" id="try-title">Feel the hit.</h2>
+        <p class="lead">A quick classic round right here: roll, drop a die in a column, and knock out matching faces in your rival&rsquo;s column.</p>
+        <p class="fine">The full game adds smarter AI, friends nearby, daily puzzles and more.</p>
+      </div>
+      <div class="table" id="try-table" aria-label="Playable demo of Knuckles">
+        <div class="table-head"><h3>Classic rules</h3></div>
+        <div class="side-label"><span>Rival</span><b id="oppScore">0</b></div>
+        <div class="tboard" id="oppBoard"></div>
+        <div class="center-row">
+          <div class="rolled" id="rolled" aria-live="polite"><img alt="" src="./art/die-6.svg" style="opacity:.25" width="58" height="58"></div>
+          <div class="status" id="status">Roll a die, then tap one of your columns.</div>
+          <button class="roll-btn btn btn-gold" id="rollBtn" type="button">Roll</button>
+        </div>
+        <div class="tboard" id="myBoard"></div>
+        <div class="side-label"><span>You</span><b id="myScore">0</b></div>
+        <img class="bang" id="bang" src="./art/impact-burst.svg" alt="" width="120" height="120">
+        <div class="result" id="result" role="dialog" aria-live="assertive">
+          <h3 id="resultTitle">You win!</h3>
+          <p id="resultText"></p>
+          <a class="btn btn-green" href="https://apps.apple.com/us/app/knuckles-game/id6744087482" target="_blank" rel="noopener">Download on the App Store</a>
+          <button class="link-btn" id="again" type="button">Play again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-alt" id="how" aria-labelledby="how-title">
     <div class="wrap">
       <div class="center">
         <p class="eyebrow">How to play</p>
-        <h2 class="h2" id="how-title">Roll. Stack. Shatter.</h2>
-        <p class="lead">Each player has a 3 by 3 board. Take turns rolling and placing dice. The highest score wins.</p>
+        <h2 class="h2" id="how-title">Four moves. Zero mercy.</h2>
+        <p class="lead">Two 3 by 3 boards face off. Take turns rolling one die and dropping it into a column. When a board is full, the game is over.</p>
       </div>
 
       <ol class="steps">
         <li class="card">
+          <img src="./art/die-4.svg" alt="" width="56" height="56">
           <h3>Roll</h3>
-          <p>Roll a die, 1 through 6.</p>
+          <p>Roll one die, 1 through 6. Every turn.</p>
         </li>
         <li class="card">
-          <h3>Stack</h3>
-          <p>Place it in a column on your board. Dice stack from the bottom.</p>
+          <img src="./art/die-2.svg" alt="" width="56" height="56">
+          <h3>Drop</h3>
+          <p>Pick a column on your board. Three dice fill it.</p>
         </li>
         <li class="card">
-          <h3>Shatter</h3>
-          <p>Matching faces in the same column on their board are destroyed.</p>
+          <img src="./art/impact-burst.svg" alt="" width="56" height="56">
+          <h3>Smash</h3>
+          <p>Every matching face in their same column gets knocked out.</p>
         </li>
         <li class="card">
+          <img src="./art/crown.svg" alt="" width="56" height="56">
           <h3>Score</h3>
-          <p>Matching dice in a column multiply: a single scores once, a double scores four times, a triple nine times.</p>
+          <p>Matching dice in a column multiply. High score takes the table.</p>
         </li>
       </ol>
 
       <div class="score" aria-label="Scoring example with fives">
         <div class="card">
-          <div class="dice-row" aria-hidden="true"><span class="die f5"></span></div>
+          <div class="dice-row" aria-hidden="true"><img src="./art/die-5.svg" alt="" width="44" height="44"></div>
           <div class="pts">5 pts</div>
           <small>One 5 &times;1</small>
         </div>
         <div class="card">
-          <div class="dice-row" aria-hidden="true"><span class="die f5"></span><span class="die f5"></span></div>
+          <div class="dice-row" aria-hidden="true"><img src="./art/die-5.svg" alt="" width="44" height="44"><img src="./art/die-5.svg" alt="" width="44" height="44"></div>
           <div class="pts">20 pts</div>
           <small>Two 5s &times;4</small>
         </div>
         <div class="card">
-          <div class="dice-row" aria-hidden="true"><span class="die f5"></span><span class="die f5"></span><span class="die f5"></span></div>
+          <div class="dice-row" aria-hidden="true"><img src="./art/die-5.svg" alt="" width="44" height="44"><img src="./art/die-5.svg" alt="" width="44" height="44"><img src="./art/die-5.svg" alt="" width="44" height="44"></div>
           <div class="pts">45 pts</div>
           <small>Three 5s &times;9</small>
         </div>
@@ -161,62 +199,103 @@
     <div class="wrap">
       <div class="center">
         <p class="eyebrow">Ways to play</p>
-        <h2 class="h2" id="modes-title">Three ways to play, one dice duel.</h2>
+        <h2 class="h2" id="modes-title">Anyone. Anywhere. Any table.</h2>
       </div>
 
       <div class="features">
         <article class="card feature">
-          <div class="ico" aria-hidden="true">🎲</div>
-          <h3>Play vs AI</h3>
-          <p>Take on the computer on Easy, Medium, or Hard.</p>
+          <img class="ico-art" src="./art/mode-ai.svg" alt="" width="56" height="56">
+          <h3>vs the AI</h3>
+          <p>Easy, Medium or Hard, and it learns how you play.</p>
         </article>
         <article class="card feature">
-          <div class="ico" aria-hidden="true">📱</div>
-          <h3>One phone. Two players.</h3>
-          <p>Sit opposite, side by side, or share the screen.</p>
+          <img class="ico-art" src="./art/mode-local.svg" alt="" width="56" height="56">
+          <h3>Pass &amp; play</h3>
+          <p>One phone, two players, sitting across from each other or side by side.</p>
         </article>
         <article class="card feature">
-          <div class="ico" aria-hidden="true">🤝</div>
-          <h3>Find a friend</h3>
-          <p>Start a duel over nearby Bluetooth, the same Wi&#8209;Fi, or right in Messages.</p>
+          <img class="ico-art" src="./art/mode-paired.svg" alt="" width="56" height="56">
+          <h3>Nearby duel</h3>
+          <p>Two phones over Bluetooth or the same Wi&#8209;Fi. No accounts, no lobby.</p>
         </article>
         <article class="card feature">
-          <div class="ico" aria-hidden="true">📅</div>
-          <h3>Daily puzzle and more</h3>
-          <p>A fresh puzzle every day, plus variants. Some modes unlock as you learn and win.</p>
-          <ul class="chips" aria-label="Variants">
-            <li>Daily puzzle</li><li>Best of 3</li><li>Blitz</li><li>Target 50</li>
-          </ul>
-        </article>
-        <article class="card feature">
-          <div class="ico" aria-hidden="true">🛍️</div>
-          <h3>Own the look</h3>
-          <p>Earn Knuckles from matches and spend them on dice, boards, scenes, frames, and stackable FX.</p>
-        </article>
-        <article class="card feature">
-          <div class="ico" aria-hidden="true">👑</div>
-          <h3>Knuckles Pro</h3>
-          <p>A one-time purchase that removes ads and includes the Gilded die.</p>
+          <img class="ico-art" src="./art/mode-messages.svg" alt="" width="56" height="56">
+          <h3>In Messages</h3>
+          <p>Send your move as a link and play turn by turn.</p>
         </article>
       </div>
+      <ul class="chips chips-row" aria-label="Variants">
+        <li><img src="./art/variant-daily.svg" alt="" width="26" height="26">Daily puzzle</li>
+        <li><img src="./art/variant-bestof3.svg" alt="" width="26" height="26">Best of 3</li>
+        <li><img src="./art/variant-blitz.svg" alt="" width="26" height="26">Blitz</li>
+        <li><img src="./art/variant-target.svg" alt="" width="26" height="26">Target 50</li>
+      </ul>
     </div>
   </section>
 
   <section class="section" id="badges" aria-labelledby="badges-title">
     <div class="wrap center">
       <p class="eyebrow">Achievements</p>
-      <h2 class="h2" id="badges-title">Chase every badge.</h2>
-      <p class="lead">Earn Knuckles and exclusive cosmetics as you play, and compare high scores with friends worldwide.</p>
-      <ul class="badges">
-        <li><img loading="lazy" src="./badges/first_roll.svg" width="120" height="120" alt="First Roll badge"></li>
-        <li><img loading="lazy" src="./badges/knockout.svg" width="120" height="120" alt="Knockout badge"></li>
-        <li><img loading="lazy" src="./badges/column_clear.svg" width="120" height="120" alt="Column Clear badge"></li>
-        <li><img loading="lazy" src="./badges/double_down.svg" width="120" height="120" alt="Double Down badge"></li>
-        <li><img loading="lazy" src="./badges/triple_threat.svg" width="120" height="120" alt="Triple Threat badge"></li>
-        <li><img loading="lazy" src="./badges/perfect_sixes.svg" width="120" height="120" alt="Perfect Sixes badge"></li>
-        <li><img loading="lazy" src="./badges/win_streak_5.svg" width="120" height="120" alt="Win Streak badge"></li>
-        <li><img loading="lazy" src="./badges/score_100.svg" width="120" height="120" alt="Score 100 badge"></li>
+      <h2 class="h2" id="badges-title">Earn the hardware.</h2>
+      <p class="lead">Game Center achievements for every kind of win, from your first knockout to a perfect 162-point board.</p>
+      <ul class="ach-list">
+        <li class="ach r-common">
+          <img loading="lazy" src="./badges/first_win.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>First Win</h3><p>Win a match against the AI.</p></div>
+          <div class="ach-meta"><b>+10</b><span>Common</span></div>
+        </li>
+        <li class="ach r-common">
+          <img loading="lazy" src="./badges/knockout.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Knockout</h3><p>Destroy an opponent die.</p></div>
+          <div class="ach-meta"><b>+10</b><span>Common</span></div>
+        </li>
+        <li class="ach r-common">
+          <img loading="lazy" src="./badges/double_down.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Double Down</h3><p>Finish a game with a double in a column.</p></div>
+          <div class="ach-meta"><b>+10</b><span>Common</span></div>
+        </li>
+        <li class="ach r-uncommon">
+          <img loading="lazy" src="./badges/column_clear.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Column Clear</h3><p>Clear a full opponent column.</p></div>
+          <div class="ach-meta"><b>+15</b><span>Uncommon</span></div>
+        </li>
+        <li class="ach r-uncommon">
+          <img loading="lazy" src="./badges/triple_threat.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Triple Threat</h3><p>Finish a game with a triple in a column.</p></div>
+          <div class="ach-meta"><b>+20</b><span>Uncommon</span></div>
+        </li>
+        <li class="ach r-uncommon">
+          <img loading="lazy" src="./badges/score_100.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Centurion</h3><p>Score 100 or more points.</p></div>
+          <div class="ach-meta"><b>+20</b><span>Uncommon</span></div>
+        </li>
+        <li class="ach r-rare">
+          <img loading="lazy" src="./badges/wins_25.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Champion</h3><p>Win 25 games total.</p></div>
+          <div class="ach-meta"><b>+30</b><span>Rare</span></div>
+        </li>
+        <li class="ach r-rare">
+          <img loading="lazy" src="./badges/perfect_sixes.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Perfect Sixes</h3><p>Stack three sixes in a column.</p></div>
+          <div class="ach-meta"><b>+25</b><span>Rare</span></div>
+        </li>
+        <li class="ach r-rare">
+          <img loading="lazy" src="./badges/win_streak_5.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Streak Legend</h3><p>Win 5 games in a row.</p></div>
+          <div class="ach-meta"><b>+25</b><span>Rare</span></div>
+        </li>
+        <li class="ach r-legendary">
+          <img loading="lazy" src="./badges/score_162.png" width="72" height="72" alt="">
+          <div class="ach-body"><h3>Perfect Board</h3><p>Reach the theoretical max score of 162.</p></div>
+          <div class="ach-meta"><b>+50</b><span>Legendary</span></div>
+        </li>
       </ul>
+      <div class="perks">
+        <div class="perk"><img src="./art/coin.svg" alt="" width="40" height="40"><div><b>Earn Knuckles</b><br>Win matches and daily drops.</div></div>
+        <div class="perk"><img src="./art/shop-bag.svg" alt="" width="40" height="40"><div><b>Dress the table</b><br>Dice, boards, frames and scenes.</div></div>
+        <div class="perk"><img src="./art/trophy.svg" alt="" width="40" height="40"><div><b>Leaderboards</b><br>Top scores with Game Center.</div></div>
+        <div class="perk"><img src="./art/streak-flame.svg" alt="" width="40" height="40"><div><b>Streaks</b><br>Keep the wins coming.</div></div>
+      </div>
     </div>
   </section>
 
@@ -230,7 +309,7 @@
           <a class="btn btn-green" href="https://apps.apple.com/us/app/knuckles-game/id6744087482" target="_blank" rel="noopener">Download on the App Store</a>
           <a class="btn btn-green" data-play href="#" target="_blank" rel="noopener" hidden>Get it on Google Play</a>
         </div>
-        <p class="fine">Free to download, for ages 13 and up. Includes optional in-app purchases and ads. Knuckles Pro removes ads.</p>
+        <p class="fine">Free to download, for ages 13 and up. Includes optional in-app purchases and ads.</p>
       </div>
     </div>
   </section>
@@ -242,11 +321,13 @@
     <nav aria-label="Legal">
       <a href="privacy/">Privacy Policy</a>
       <a href="terms/">Terms of Service</a>
+      <a href="founders/">Founders</a>
       <a href="../">More games</a>
     </nav>
     <p>Knuckles is a game by <a href="../../index.html">Halite Studio</a> (Sebastian Salgado) &amp; <a href="https://github.com/PrestonHager" target="_blank" rel="noopener">Preston Hager</a>, made in Las Cruces, New Mexico.</p>
   </div>
 </footer>
 
+<script src="./try.js" defer></script>
 </body>
 </html>

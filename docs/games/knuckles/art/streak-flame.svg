@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="clip-path-1">
+      <path d="M256 34 C302 130 410 182 398 314 C392 412 326 478 256 478 C186 478 120 412 114 314 C106 236 160 214 188 148 C208 192 226 206 256 34 Z"/>
+    </clipPath>
+  </defs>
+  <title>streak-flame.svg</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <path d="M256 46 C302 142 410 194 398 326 C392 424 326 490 256 490 C186 490 120 424 114 326 C106 248 160 226 188 160 C208 204 226 218 256 46 Z" fill="#241511" stroke="#241511" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M256 34 C302 130 410 182 398 314 C392 412 326 478 256 478 C186 478 120 412 114 314 C106 236 160 214 188 148 C208 192 226 206 256 34 Z" fill="#ff6b1a" stroke="#241511" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <g clip-path="url(#clip-path-1)">
+      <path d="M60 330 L460 330 L460 510 L60 510 Z" fill="#c03a0a"/>
+      <path d="M242 250 C242 305.228 218.719 350 190 350 C161.281 350 138 305.228 138 250 C138 194.772 161.281 150 190 150 C218.719 150 242 194.772 242 250 Z" fill="#ffb25e" opacity="0.85"/>
+    </g>
+    <path d="M256 34 C302 130 410 182 398 314 C392 412 326 478 256 478 C186 478 120 412 114 314 C106 236 160 214 188 148 C208 192 226 206 256 34 Z" fill="none" stroke="#241511" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M256 196 C288 256 338 284 332 352 C328 410 292 442 256 442 C220 442 184 410 180 352 C176 300 220 272 256 196 Z" fill="#ffc933" stroke="#241511" stroke-width="14"/>
+    <path d="M256 292 C272 328 296 344 292 380 C290 408 274 424 256 424 C238 424 222 408 220 380 C218 350 240 330 256 292 Z" fill="#ffefaf"/>
+  </g>
+</svg>
