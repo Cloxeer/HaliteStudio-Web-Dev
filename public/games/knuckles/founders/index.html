@@ -1,96 +1,21 @@
 <!DOCTYPE html>
 <!--
-  ELI5: A page that introduces the two people who made Knuckles, with their photos.
-  What: Static page published at /games/knuckles/founders/. Reuses knuckles.css (same plum/gold look as the game page).
-  Owns: The founders' names, roles, short bios, photos and links. Edit the two <article class="founder"> blocks.
-  Depends on: ../knuckles.css, ../images/ (founder-*.webp, icon-256.webp). Paths start with ./ or ../ on purpose.
+  ELI5: This page only forwards you. Knuckles now lives on its own site.
+  What: Redirect stub kept at the old halitestudio.com/games/knuckles/ address so old links and bookmarks still work.
+  Owns: The forward to the same page on knuckles.halitestudio.com (meta refresh + script + canonical for search engines).
+  Depends on: The Knuckles site (workspace ws_knuckles_test01) being live at knuckles.halitestudio.com.
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Founders | Knuckles</title>
-<meta name="description" content="Meet the makers of Knuckles: Sebastian Salgado of Halite Studio and Preston Hager, two developers from Las Cruces, New Mexico.">
-<link rel="canonical" href="https://halitestudio.com/games/knuckles/founders/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The founders of Knuckles">
-<meta property="og:description" content="Sebastian Salgado and Preston Hager, the two developers behind Knuckles.">
-<meta property="og:url" content="https://halitestudio.com/games/knuckles/founders/">
-<meta property="og:image" content="https://halitestudio.com/games/knuckles/images/og-knuckles.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1f1530">
-<link rel="icon" href="../images/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
-<link rel="preload" href="../fonts/LilitaOne-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="../knuckles.css">
+<title>Knuckles | Moved to knuckles.halitestudio.com</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://knuckles.halitestudio.com/founders/">
+<meta http-equiv="refresh" content="0; url=https://knuckles.halitestudio.com/founders/">
+<script>location.replace("https://knuckles.halitestudio.com/founders/" + location.search + location.hash);</script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="../" aria-label="Knuckles home">
-      <img src="../images/icon-256.webp" alt="" width="46" height="46">
-      <span>Knuckles</span>
-    </a>
-    <nav aria-label="Page">
-      <a href="../#how">How to play</a>
-      <a href="../#modes">Modes</a>
-      <a href="./" aria-current="page">Founders</a>
-      <a class="keep" href="../#get">Get the game</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-  <section class="section">
-    <div class="wrap">
-      <div class="center">
-        <p class="eyebrow">Founders</p>
-        <h1 class="h2">Two developers. One dice duel.</h1>
-        <p class="lead">Knuckles is made in Las Cruces, New Mexico by Sebastian Salgado and Preston Hager.</p>
-      </div>
-
-      <div class="founders">
-        <article class="card founder">
-          <img src="../images/founder-sebastian.webp" width="400" height="400" alt="Sebastian Salgado" loading="lazy">
-          <div class="founder-body">
-            <h2>Sebastian Salgado</h2>
-            <p class="role">Halite Studio</p>
-            <p>A computer science student who builds websites and games under Halite Studio, from Las Cruces.</p>
-            <p class="links"><a href="../../../index.html">Halite Studio</a></p>
-          </div>
-        </article>
-
-        <article class="card founder">
-          <img src="../images/founder-preston.webp" width="400" height="400" alt="Preston Hager" loading="lazy">
-          <div class="founder-body">
-            <h2>Preston Hager</h2>
-            <p class="role">Game developer</p>
-            <p>A developer from Las Cruces, New Mexico, and the publisher of Knuckles on the App Store.</p>
-            <p class="links"><a href="https://prestonhager.com" target="_blank" rel="noopener">prestonhager.com</a> <a href="https://github.com/PrestonHager" target="_blank" rel="noopener">GitHub</a></p>
-          </div>
-        </article>
-      </div>
-
-      <div class="btn-row center-row-btn">
-        <a class="btn btn-green" href="https://apps.apple.com/us/app/knuckles-game/id6744087482" target="_blank" rel="noopener">Download on the App Store</a>
-        <a class="btn btn-gold" href="../">Back to the game</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="foot">
-  <div class="wrap">
-    <nav aria-label="Legal">
-      <a href="../privacy/">Privacy Policy</a>
-      <a href="../terms/">Terms of Service</a>
-      <a href="../../">More games</a>
-    </nav>
-    <p>Knuckles is a game by <a href="../../../index.html">Halite Studio</a> (Sebastian Salgado) &amp; <a href="https://github.com/PrestonHager" target="_blank" rel="noopener">Preston Hager</a>, made in Las Cruces, New Mexico.</p>
-  </div>
-</footer>
-
+<p>Knuckles has moved to <a href="https://knuckles.halitestudio.com/founders/">knuckles.halitestudio.com</a>.</p>
 </body>
 </html>
